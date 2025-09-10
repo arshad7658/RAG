@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Simple Gemini Chat</title>
+</head>
+<body>
+  <h1>Chat</h1>
+
+  <p>Session: <code>{{ session_id }}</code></p>
+
+  {% if chat_history %}
+    <h2>History</h2>
+    <ul>
+      {% for msg in chat_history %}
+        <li><strong>{{ msg.role }}:</strong> {{ msg.parts[0].text }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
+    <form method="post" action="/chat">
+    <input type="hidden" name="session_id" value="{{ session_id }}" />
+    <div>
+      <label for="user_input">Your message</label><br />
+      <textarea id="user_input" name="user_input" rows="5" cols="80" required></textarea>
+    </div>
+
+    <div>
+      <button type="submit">Send</button>
+    </div>
+  </form>
+</body>
+</html>
