@@ -10,7 +10,7 @@ from fastapi.templating import Jinja2Templates
 from google.generativeai import GenerativeModel, ChatSession
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
-API_KEY= "AIzaSyCJAWHor2PFU3IbDsQ7yNdiMUWvVRwUDUQ"
+API_KEY= "YOUR_API_KEY_HERE"
 embedder = SentenceTransformer("all-MiniLM-L6-v2")
 index = faiss.read_index("data/traffic_rules.index")
 with open("data/chunks.json", "r") as f:
